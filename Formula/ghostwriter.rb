@@ -5,6 +5,13 @@ class Ghostwriter < Formula
   sha256 "820af265fe91573d27a61e1533683f7052f16fea9f81a0ba814358f799419b10"
   license "GPL-2.0-only"
 
+  # `cargo install` runs with --locked, which pins aws-lc-sys 0.44.0.
+  # Its build.rs takes the cc path on macOS — the C compiler that ships
+  # with the Xcode CLT, present because `rust` => :build requires it —
+  # and only falls back to cmake when `cc_builder.check_dependencies()`
+  # fails. No cmake build dependency is needed at this lock. If a
+  # future lock bump takes the cmake path, add
+  # `depends_on "cmake" => :build` here.
   depends_on "rust" => :build
 
   def fetch
