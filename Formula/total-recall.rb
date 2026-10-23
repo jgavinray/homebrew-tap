@@ -51,8 +51,8 @@ class TotalRecall < Formula
            "--binary", bin/"total-recall",
            "--omp-config", omp,
            "--harness", "omp"
-    assert_predicate omp, :exist?
+    assert_path_exists omp
     assert_match '"total-recall"', omp.read
-    assert_predicate root/"signoff.md", :exist?
+    assert_path_exists root/"signoff.md"
   end
 end
