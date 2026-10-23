@@ -37,7 +37,7 @@ cargo workspace from source and installs three binaries:
 brew install jgavinray/tap/fleet-control
 ```
 
-The formula pins the `v0.1.0` tag of the upstream repository. `brew install
+The formula pins the `v0.1.1` tag of the upstream repository. `brew install
 --HEAD` builds the tip of `main` instead, which is useful before a tag exists
 and for testing unreleased changes.
 

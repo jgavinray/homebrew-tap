@@ -1,7 +1,9 @@
 class FleetControl < Formula
   desc "Probe local model engines and expose the fleet registry over MCP"
   homepage "https://github.com/jgavinray/fleet-control"
-  url "https://github.com/jgavinray/fleet-control.git", tag: "v0.1.1"
+  url "https://github.com/jgavinray/fleet-control.git",
+      tag:      "v0.1.1",
+      revision: "9a08d6b7fb283bfa8bfa214ea1e98393617d772b"
   license "GPL-2.0-only"
   head "https://github.com/jgavinray/fleet-control.git", branch: "main"
 
