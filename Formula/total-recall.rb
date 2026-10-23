@@ -19,7 +19,7 @@ class TotalRecall < Formula
       Register it in your harnesses and provision the memory root with the
       companion helper:
 
-        total-recall-mcp install --root ~/dev/exomemory
+        total-recall-mcp install --root ~/exomemory
 
       That writes the omp, Pi, Claude Code, and Codex configs, seeds
       signoff.md when absent, and backs up any file it rewrites. Use
@@ -35,7 +35,7 @@ class TotalRecall < Formula
 
       Verify the binary and root without starting the server:
 
-        total-recall --root ~/dev/exomemory --self-check
+        total-recall --root ~/exomemory --self-check
     EOS
   end
 
