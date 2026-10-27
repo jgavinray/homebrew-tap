@@ -19,6 +19,13 @@ class Ghostwriter < Formula
   end
 
   def install
+    # This host has a broken Xcode.app that hijacks clang's toolchain
+    # discovery (Homebrew's superenv drops the caller's DEVELOPER_DIR). Point
+    # the build at the CLT, which every fleet Mac has; harmless where a real
+    # Xcode is the toolchain — cargo only needs a working cc and SDK.
+    clt = "/Library/Developer/CommandLineTools"
+    ENV["DEVELOPER_DIR"] = clt if File.directory?(clt)
+
     system "cargo", "install", *std_cargo_args
 
     pkgshare.install "assets/config.example.toml"
