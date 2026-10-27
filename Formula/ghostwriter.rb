@@ -1,8 +1,8 @@
 class Ghostwriter < Formula
   desc "Documentation drafting over stdio MCP, backed by a local writing model"
   homepage "https://github.com/jgavinray/ghostwriter"
-  url "https://github.com/jgavinray/ghostwriter/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "820af265fe91573d27a61e1533683f7052f16fea9f81a0ba814358f799419b10"
+  url "https://github.com/jgavinray/ghostwriter/archive/refs/tags/v0.1.1.tar.gz"
+  sha256 "252ce0e424f3535f3064f7ebe75af8409a1af1d966a04229397f4ba4c5f28d8f"
   license "GPL-2.0-only"
 
   # `cargo install` runs with --locked, which pins aws-lc-sys 0.44.0.
@@ -39,6 +39,8 @@ class Ghostwriter < Formula
         $EDITOR ~/.config/ghostwriter/config.toml
 
       or set base_url/model via GHOSTWRITER_BASE_URL / GHOSTWRITER_MODEL.
+      An endpoint that requires a bearer token also needs api_key in the
+      config file, or GHOSTWRITER_API_KEY in the environment.
       Verify what resolves without starting the server:
 
         ghostwriter --self-check
@@ -64,6 +66,7 @@ class Ghostwriter < Formula
     json = shell_output("#{bin}/ghostwriter --self-check --config #{config}")
     assert_match '"base_url":"http://127.0.0.1:9/v1"', json
     assert_match '"model":"test-model"', json
+    assert_match '"api_key_set":false', json
 
     assert_match "usage: ghostwriter", shell_output("#{bin}/ghostwriter --help")
   end
