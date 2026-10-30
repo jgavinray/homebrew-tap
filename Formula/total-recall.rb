@@ -1,8 +1,8 @@
 class TotalRecall < Formula
   desc "Markdown side-band memory enforced over the buckets it owns (MCP)"
   homepage "https://github.com/jgavinray/total-recall"
-  url "https://github.com/jgavinray/total-recall/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "d8a9c632078eb77bf13cf792de878c72295d95c99b14e28202813f2ae666069b"
+  url "https://github.com/jgavinray/total-recall/archive/refs/tags/v0.1.1.tar.gz"
+  sha256 "e9c53fdf4ebc19e861452da91306eeb1bb84788907412764ba66d7f3bf109264"
   license "GPL-2.0-only"
 
   depends_on "rust" => :build
