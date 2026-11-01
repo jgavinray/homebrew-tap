@@ -20,6 +20,7 @@ brew "<formula>"
 | `fleet-control` | Probes local model engines and serves the fleet registry over MCP |
 | `ghostwriter` | Documentation drafting over stdio MCP, backed by a local writing model |
 | `total-recall` | Markdown side-band memory over stdio MCP |
+| `xtop` | htop-style terminal monitor for Intel GPUs (Linux) |
 
 ### fleet-control
 
@@ -56,6 +57,18 @@ git clone https://github.com/jgavinray/fleet-control.git
 cd fleet-control
 agents/install.sh        # symlinks the worker agent into ~/.claude and ~/.omp
 fleet-stopgap install    # writes and loads the launchd plist (macOS only)
+```
+
+### xtop
+
+[xtop](https://github.com/jgavinray/xtop) shows real-time engine utilization,
+VRAM, temperatures, power, clocks and per-process GPU usage for Intel GPUs on
+the `xe` driver (basic `i915` support). It reads sysfs, `/proc` and DRM ioctls
+directly, so it needs neither xpu-smi nor root. The formula is Linux-only and
+builds from source with `rust` as a build-only dependency.
+
+```sh
+brew install jgavinray/tap/xtop
 ```
 
 ## Documentation
